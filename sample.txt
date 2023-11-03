@@ -1,0 +1,22 @@
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.support.ClassPathXmlApplicationContext;
+
+import com.cg.spring.Spring.bean.Employee;
+
+public class EmployeeMain {
+
+	public static void main(String[] args) {
+		ApplicationContext context = new ClassPathXmlApplicationContext("employee.xml");
+		
+		Employee emp1 = (Employee) context.getBean("emp1");
+		
+		System.out.println("employeeId    :"+emp1.getEmpId());
+		System.out.println("employeeName  :"+emp1.getName());
+		System.out.println("employeeSalary:"+emp1.getSalary());
+		System.out.print("employeeSkills:");
+		emp1.getSkill().forEach(s->System.out.print(s+"|"));
+		
+
+	}
+
+}
